@@ -1,0 +1,79 @@
+.stories-tray {
+    display: flex;
+    gap: 16px;
+    padding: 18px 20px;
+    overflow-x: auto;
+    background: rgba(17, 25, 46, 0.75);
+    backdrop-filter: blur(16px);
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(148, 163, 184, 0.12);
+    border: 1px solid rgba(56, 189, 248, 0.18);
+    scrollbar-width: none;
+}
+
+    .stories-tray::-webkit-scrollbar {
+        display: none;
+    }
+
+.story-circle-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    flex-shrink: 0;
+}
+
+    .story-circle-wrapper:hover {
+        transform: scale(1.07);
+    }
+
+.story-circle {
+    width: 74px;
+    height: 74px;
+    border-radius: 50%;
+    padding: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* Новая история - неоново-голубой градиент */
+.new .story-circle {
+    background: linear-gradient(135deg, #38bdf8 0%, #3b82f6 50%, #6366f1 100%);
+    box-shadow: 0 0 16px rgba(56, 189, 248, 0.45);
+}
+
+/* Просмотренная история - приглушенный темно-синий контур */
+.viewed .story-circle {
+    background: #334155;
+}
+
+.story-circle img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #0f172a;
+    background: #1e293b;
+}
+
+.story-username {
+    font-size: 12px;
+    font-weight: 600;
+    color: #f1f5f9;
+    text-shadow: 0 0 10px rgba(241, 245, 249, 0.25);
+    margin-top: 8px;
+    max-width: 76px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.viewed .story-username {
+    color: #64748b;
+    text-shadow: none;
+    font-weight: 500;
+}

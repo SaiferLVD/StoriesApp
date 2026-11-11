@@ -1,0 +1,6 @@
+@StoriesApp.Server_HostAddress = http://localhost:5216
+
+GET {{StoriesApp.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

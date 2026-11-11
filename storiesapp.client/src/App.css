@@ -1,0 +1,318 @@
+﻿@import url('https://googleapis.com');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: radial-gradient(circle at top center, #13203b 0%, #090d16 70%, #05070c 100%);
+    color: #f1f5f9;
+    min-height: 100vh;
+}
+
+.app-container {
+    max-width: 540px;
+    margin: 0 auto;
+    padding: 28px 16px;
+}
+
+/* Шапка приложения */
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(17, 25, 46, 0.75);
+    backdrop-filter: blur(16px);
+    padding: 16px 22px;
+    border-radius: 22px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(148, 163, 184, 0.15);
+    margin-bottom: 22px;
+    border: 1px solid rgba(56, 189, 248, 0.18);
+}
+
+    .app-header h1 {
+        font-size: 22px;
+        font-weight: 700;
+        background: linear-gradient(90deg, #e0f2fe 0%, #7dd3fc 50%, #38bdf8 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        filter: drop-shadow(0 0 12px rgba(56, 189, 248, 0.35));
+        letter-spacing: -0.5px;
+    }
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nav-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #38bdf8;
+    box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
+}
+
+.user-profile span {
+    font-weight: 600;
+    font-size: 14px;
+    color: #f8fafc;
+    text-shadow: 0 0 10px rgba(248, 250, 252, 0.25);
+}
+
+.logout-btn {
+    background: rgba(239, 68, 68, 0.15);
+    color: #fca5a5;
+    border: 1px solid rgba(239, 68, 68, 0.35);
+    padding: 7px 14px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+    .logout-btn:hover {
+        background: rgba(239, 68, 68, 0.28);
+        color: #ffffff;
+        box-shadow: 0 0 14px rgba(239, 68, 68, 0.3);
+    }
+
+/* Стеклянные темно-синие карточки */
+.glass-card {
+    background: rgba(15, 23, 42, 0.78);
+    backdrop-filter: blur(20px);
+    padding: 30px;
+    border-radius: 26px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(148, 163, 184, 0.12);
+    margin-top: 22px;
+    border: 1px solid rgba(56, 189, 248, 0.16);
+}
+
+.card-title {
+    font-size: 21px;
+    font-weight: 700;
+    color: #f8fafc;
+    text-align: center;
+    margin-bottom: 6px;
+    text-shadow: 0 0 16px rgba(224, 242, 254, 0.3);
+}
+
+.card-subtitle {
+    font-size: 14px;
+    color: #94a3b8;
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+/* Поля ввода */
+.modern-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+    .input-group label {
+        font-size: 13px;
+        font-weight: 600;
+        color: #cbd5e1;
+        text-shadow: 0 0 8px rgba(203, 213, 225, 0.15);
+    }
+
+    .input-group input[type="text"],
+    .input-group input[type="password"] {
+        padding: 13px 16px;
+        border-radius: 14px;
+        border: 1.5px solid rgba(56, 189, 248, 0.2);
+        background: rgba(9, 13, 22, 0.75);
+        font-size: 15px;
+        color: #f8fafc;
+        transition: all 0.25s ease;
+        outline: none;
+    }
+
+    .input-group input::placeholder {
+        color: #475569;
+    }
+
+    .input-group input:focus {
+        border-color: #38bdf8;
+        background: rgba(15, 23, 42, 0.95);
+        box-shadow: 0 0 18px rgba(56, 189, 248, 0.22);
+    }
+
+/* Кнопка загрузки аватара */
+.file-upload-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 13px;
+    border-radius: 14px;
+    border: 1.5px dashed rgba(56, 189, 248, 0.35);
+    background: rgba(14, 165, 233, 0.06);
+    color: #bae6fd;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+    .file-upload-btn:hover {
+        border-color: #38bdf8;
+        background: rgba(14, 165, 233, 0.14);
+        color: #ffffff;
+        box-shadow: 0 0 16px rgba(56, 189, 248, 0.2);
+    }
+
+/* Зона перетаскивания фото истории */
+.story-dropzone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 190px;
+    border-radius: 20px;
+    border: 2px dashed rgba(56, 189, 248, 0.3);
+    background: rgba(9, 13, 22, 0.65);
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.25s ease;
+    position: relative;
+}
+
+    .story-dropzone:hover {
+        border-color: #38bdf8;
+        background: rgba(14, 165, 233, 0.08);
+        box-shadow: 0 0 24px rgba(56, 189, 248, 0.15);
+    }
+
+.dropzone-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 20px;
+}
+
+.upload-icon {
+    font-size: 34px;
+    filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.4));
+}
+
+.upload-text {
+    font-weight: 600;
+    font-size: 15px;
+    color: #e2e8f0;
+    text-shadow: 0 0 10px rgba(226, 232, 240, 0.2);
+}
+
+.upload-hint {
+    font-size: 12px;
+    color: #64748b;
+}
+
+.preview-wrapper {
+    width: 100%;
+    height: 250px;
+    position: relative;
+}
+
+.story-upload-preview {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.change-photo-badge {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(9, 13, 22, 0.85);
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    color: #e0f2fe;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.selected-file-name {
+    font-size: 12px;
+    color: #7dd3fc;
+    text-align: center;
+}
+
+/* Сапфировая кнопка с мягким свечением */
+.primary-gradient-btn {
+    background: linear-gradient(135deg, #2563eb 0%, #0284c7 50%, #0ea5e9 100%);
+    color: #ffffff;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(125, 211, 252, 0.4);
+    padding: 14px;
+    border-radius: 14px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(2, 132, 199, 0.4);
+    transition: all 0.25s ease;
+}
+
+    .primary-gradient-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 28px rgba(56, 189, 248, 0.55);
+        filter: brightness(1.08);
+    }
+
+    .primary-gradient-btn:active {
+        transform: translateY(0);
+    }
+
+/* Ссылки переключения */
+.auth-switch {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    margin-top: 22px;
+    font-size: 14px;
+    color: #94a3b8;
+}
+
+.link-btn {
+    background: none;
+    border: none;
+    color: #38bdf8;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    text-shadow: 0 0 10px rgba(56, 189, 248, 0.35);
+}
+
+    .link-btn:hover {
+        color: #7dd3fc;
+        text-decoration: underline;
+    }
+
+.error-badge {
+    background: rgba(239, 68, 68, 0.15);
+    color: #fca5a5;
+    padding: 10px 14px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 500;
+    text-align: center;
+    border: 1px solid rgba(239, 68, 68, 0.35);
+}

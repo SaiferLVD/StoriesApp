@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="storiesapp.client/storiesapp.client.esproj">
+    <Build />
+    <Deploy />
+  </Project>
+  <Project Path="StoriesApp.Server/StoriesApp.Server.csproj" />
+</Solution>

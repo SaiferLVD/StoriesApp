@@ -1,0 +1,22 @@
+[
+  {
+    "Username": "admin",
+    "Password": "123",
+    "Avatar": "/images/avatar1.jpg"
+  },
+  {
+    "Username": "traveler",
+    "Password": "123",
+    "Avatar": "/images/avatar2.jpg"
+  },
+  {
+    "Username": "\u041B\u0438\u043D\u0430\u0440",
+    "Password": "123",
+    "Avatar": "/images/default-avatar.png"
+  },
+  {
+    "Username": "Saifer",
+    "Password": "67",
+    "Avatar": "/images/default-avatar.png"
+  }
+]
