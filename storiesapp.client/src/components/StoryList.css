@@ -39,13 +39,11 @@
     position: relative;
 }
 
-/* Новая история - неоново-голубой градиент */
 .new .story-circle {
     background: linear-gradient(135deg, #38bdf8 0%, #3b82f6 50%, #6366f1 100%);
     box-shadow: 0 0 16px rgba(56, 189, 248, 0.45);
 }
 
-/* Просмотренная история - приглушенный темно-синий контур */
 .viewed .story-circle {
     background: #334155;
 }

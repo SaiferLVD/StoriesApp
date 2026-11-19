@@ -1,6 +1,5 @@
 var builder = WebApplication.CreateBuilder(args);
 
-// 1. Включаем поддержку API-контроллеров
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 
@@ -16,7 +15,6 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-// 2. Подключаем маршруты из нашего StoriesController
 app.MapControllers();
 
 app.MapFallbackToFile("/index.html");

@@ -92,7 +92,7 @@ const AuthForm = ({ onLogin }) => {
                     <div className="input-group">
                         <label>Фото профиля (необязательно)</label>
                         <label className="file-upload-btn">
-                            <span>{fileName ? `Выбрано: ${fileName}` : '📁 Выбрать файл с компьютера'}</span>
+                            <span>{fileName ? `Выбрано: ${fileName}` : ' Выбрать файл с компьютера'}</span>
                             <input type="file" accept="image/*" onChange={handleFileChange} hidden />
                         </label>
                     </div>

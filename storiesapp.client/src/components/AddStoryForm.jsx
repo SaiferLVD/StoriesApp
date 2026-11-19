@@ -54,7 +54,6 @@ class AddStoryForm extends Component {
                             </div>
                         ) : (
                             <div className="dropzone-placeholder">
-                                <span className="upload-icon">📸</span>
                                 <span className="upload-text">Нажмите, чтобы выбрать фото</span>
                                 <span className="upload-hint">Поддерживаются JPG, PNG, WEBP</span>
                             </div>

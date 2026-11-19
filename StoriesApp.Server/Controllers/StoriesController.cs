@@ -67,7 +67,7 @@ namespace StoriesApp.Server.Controllers
         }
 
         [HttpPost("register")]
-        [RequestSizeLimit(52428800)] // Лимит 50 МБ для загрузки фото
+        [RequestSizeLimit(52428800)]
         public IActionResult Register([FromBody] UserDto user)
         {
             if (string.IsNullOrWhiteSpace(user.Username) || string.IsNullOrWhiteSpace(user.Password))
@@ -107,7 +107,7 @@ namespace StoriesApp.Server.Controllers
         }
 
         [HttpPost("add")]
-        [RequestSizeLimit(52428800)] // Лимит 50 МБ для загрузки фото
+        [RequestSizeLimit(52428800)]
         public IActionResult AddStory([FromBody] NewStoryDto newStory)
         {
             if (string.IsNullOrWhiteSpace(newStory.Image))
