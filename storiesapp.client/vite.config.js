@@ -6,7 +6,6 @@ import path from 'path';
 import child_process from 'child_process';
 import { env } from 'process';
 
-// https://vitejs.dev/config/
 export default defineConfig(({ command }) => {
     const config = {
         base: '/StoriesApp/',
@@ -15,10 +14,14 @@ export default defineConfig(({ command }) => {
             alias: {
                 '@': fileURLToPath(new URL('./src', import.meta.url))
             }
+        },
+        test: {
+            environment: 'jsdom',
+            globals: true,
+            setupFiles: './src/setupTests.js',
         }
     };
 
-    // Настройка HTTPS и прокси только при локальном запуске (в Visual Studio)
     if (command === 'serve') {
         const baseFolder =
             env.APPDATA !== undefined && env.APPDATA !== ''
@@ -71,3 +74,4 @@ export default defineConfig(({ command }) => {
 
     return config;
 });
+
